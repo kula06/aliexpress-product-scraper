@@ -83,11 +83,6 @@ module.exports = {
     let allFeedbacks = [];
     let totalPages = Math.ceil(count / limit);
 
-    /** If totalPages are greater than 10, i.e. if reviews are > 100, limit it to 100 or 10 pages */
-    if (totalPages > 10) {
-      totalPages = 10;
-    }
-
     for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
       const feedbackUrl = `https://feedback.aliexpress.com/display/productEvaluation.htm?v=2&page=${currentPage}&currentPage=${currentPage}&productId=${productId}&ownerMemberId=${ownerMemberId}`;
       const feedbackResponse = await fetch(feedbackUrl);
