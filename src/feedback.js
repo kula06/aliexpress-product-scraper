@@ -8,6 +8,11 @@ const getFeedbackData = feedbackHtml => {
 
   $('.feedback-list-wrap .feedback-item').each((index, element) => {
     const $elm = $(element);
+    let id = $elm
+      .find('.feedback-id')
+      .val()
+      .trim();
+
     let name = $elm
       .find('.user-name')
       .text()
@@ -62,6 +67,7 @@ const getFeedbackData = feedbackHtml => {
     });
 
     const data = {
+      id: id,
       name: name,
       displayName: faker.name.findName(),
       country: country,
