@@ -26,6 +26,7 @@ async function AliexpressProductScraper(productId, feedbackLimit) {
 
   /** Fetch the adminAccountId required to fetch the feedbacks */
   const adminAccountId = await page.evaluate(() => adminAccountId);
+  await page.close();
   await browser.close();
 
   let feedbackData = [];
